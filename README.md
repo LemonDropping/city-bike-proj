@@ -5,6 +5,7 @@
 CityBike Finder is an  application to search for the closest CityBike via zip code. Once a location is chosen, the corresponding weather will show as well.
 
 ### User Story
+<!-- update this part -->
 
 As a bike enthusiast 
 I WANT to find the nearest CityBike to my location
