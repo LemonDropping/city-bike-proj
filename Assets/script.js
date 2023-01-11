@@ -8,12 +8,14 @@ var searchEl = document.querySelector(".search");
 containerEl.style.display = "none";
 
 // event listener upon clicking search to display containers and fetch API's
-searchBtnEl.addEventListener("click", function (event, data) {
+searchBtnEl.addEventListener("click", function (event) {
   event.preventDefault();
   containerEl.style.display = "block";
 
   if (searchEl.value.trim() || searchEl.value.trim() !== "") {
     let city = searchEl.value.trim();
+
+    // need to add something here for typing an error...catch?
   
     saveCitySearch(city);
   }
@@ -27,12 +29,12 @@ searchBtnEl.addEventListener("click", function (event, data) {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      document.querySelector(".temp").textContent = data.main.temp;
-      console.log(data.main.temp);
+
+      document.querySelector(".temp").textContent = Math.round(data.main.temp);
+      console.log(Math.round(data.main.temp));
 
       // weather api print to page
-      document.querySelector(".description").textContent =
-        data.weather[0].description; 
+      document.querySelector(".description").textContent = data.weather[0].description; 
       console.log(data.weather[0].description);
 
       // can pull other icons from another source if you want
