@@ -18,12 +18,16 @@ searchBtnEl.addEventListener("click", function (event) {
     // need to add something here for typing an error...catch?
   
     saveCitySearch(city);
-  }
+    weather(searchEl.value)
+    cityBike()
+    searchEl.value = "";
+  }});
 
-  // WEATHER API FETCH
+  // WEATHER API FETCH FUNCTION
+  function weather(localWeather) {
   fetch(
     "https://api.openweathermap.org/data/2.5/weather?q=" +
-      searchEl.value +
+      localWeather +
       "&appid=a411ef0030322e0862cd44cde300dd84&units=imperial"
   )
     .then((response) => response.json())
@@ -57,9 +61,11 @@ searchBtnEl.addEventListener("click", function (event) {
       document.querySelector(".sunset").textContent = "Sunset: " + sunsetTime;
       console.log(sunsetTime);
     });
-  console.log(searchEl.value);
+  };
+  // console.log(searchEl.value);
 
-  // CITYBIKE API FETCH
+  // CITYBIKE API FETCH FUNCTION
+  function cityBike() {
   fetch(cityBikeApiUrl)
     .then((response) => response.json())
     .then((data) => console.log(data));
@@ -72,11 +78,11 @@ searchBtnEl.addEventListener("click", function (event) {
 
   // claring the search box
   searchEl.value = "";
-});
+  };
 
-// Saving the past searches into local
+// Saving the past searches into local storage
 function saveCitySearch(city) {
   let previousHistory = JSON.parse(localStorage.getItem("searchHistory")) || {};
   previousHistory[city] = true;
   localStorage.setItem("searchHistory", JSON.stringify(previousHistory));
-}
+};
