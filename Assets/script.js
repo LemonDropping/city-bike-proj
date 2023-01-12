@@ -16,15 +16,16 @@ searchBtnEl.addEventListener("click", function (event) {
     let city = searchEl.value.trim();
 
     // need to add something here for typing an error...catch?
-  
-    saveCitySearch(city);
-    weather(searchEl.value)
-    cityBike()
-    searchEl.value = "";
-  }});
 
-  // WEATHER API FETCH FUNCTION
-  function weather(localWeather) {
+    saveCitySearch(city);
+    weather(searchEl.value);
+    cityBike(searchEl.value);
+    searchEl.value = "";
+  }
+});
+
+// WEATHER API FETCH FUNCTION
+function weather(localWeather) {
   fetch(
     "https://api.openweathermap.org/data/2.5/weather?q=" +
       localWeather +
@@ -33,12 +34,13 @@ searchBtnEl.addEventListener("click", function (event) {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-
+      console.log(localWeather);
       document.querySelector(".temp").textContent = Math.round(data.main.temp);
       console.log(Math.round(data.main.temp));
 
       // weather api print to page
-      document.querySelector(".description").textContent = data.weather[0].description; 
+      document.querySelector(".description").textContent =
+        data.weather[0].description;
       console.log(data.weather[0].description);
 
       // can pull other icons from another source if you want
@@ -61,16 +63,18 @@ searchBtnEl.addEventListener("click", function (event) {
       document.querySelector(".sunset").textContent = "Sunset: " + sunsetTime;
       console.log(sunsetTime);
     });
-  };
-  // console.log(searchEl.value);
+}
 
-  // CITYBIKE API FETCH FUNCTION
-  function cityBike() {
-  fetch(cityBikeApiUrl)
+// console.log(searchEl.value);
+
+// CITYBIKE API FETCH FUNCTION
+function cityBike(city) {
+  console.log(city)
+  fetch("http://api.citybik.es/v2/networks/" + city +"")
     .then((response) => response.json())
     .then((data) => console.log(data));
 
-    // not reading correctly
+  // not reading correctly
   // document.querySelector(".location").textContent =
   //   data.networks[0].location.city;
   // console.log(data.networks[0].location.city);
@@ -78,11 +82,11 @@ searchBtnEl.addEventListener("click", function (event) {
 
   // claring the search box
   searchEl.value = "";
-  };
+}
 
 // Saving the past searches into local storage
 function saveCitySearch(city) {
   let previousHistory = JSON.parse(localStorage.getItem("searchHistory")) || {};
   previousHistory[city] = true;
   localStorage.setItem("searchHistory", JSON.stringify(previousHistory));
-};
+}

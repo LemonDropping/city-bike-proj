@@ -20,8 +20,7 @@ SO THAT I can decide if it’s a good day for biking
 * Use client-side storage to store persistent data
 
 <!-- do we need to add this part in the readme? -->
-##### Rough breakdown of tasks
-
+###### Rough breakdown of tasks
 README - Lindsey
 HTML - Cole
 CSS - Nicole
@@ -40,8 +39,8 @@ Below are screenshots of various stages of the application.
 Here is the [link](https://) to the live website
 
 ### Contributing
-Lindsey Gaughan
-Nicole Pendarvis
-Cole Roberts
-Reynaldo Mendez
+- Lindsey Gaughan
+- Nicole Pendarvis
+- Cole Roberts
+- Reynaldo Mendez
 
