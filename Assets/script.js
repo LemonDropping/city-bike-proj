@@ -2,7 +2,7 @@
 var cityBikeApiUrl = "http://api.citybik.es/v2/networks";
 var searchBtnEl = document.querySelector(".search-btn");
 var containerEl = document.querySelector(".container");
-var searchEl = document.querySelector(".search");
+var searchEl = document.querySelector(".search-input");
 
 // containers display to none upon opening
 containerEl.style.display = "none";
@@ -14,12 +14,13 @@ searchBtnEl.addEventListener("click", function (event) {
 
   if (searchEl.value.trim() || searchEl.value.trim() !== "") {
     let city = searchEl.value.trim();
-
+    let cityLower = city.toLowerCase();
+    console.log(cityLower);
     // need to add something here for typing an error...catch?
 
-    saveCitySearch(city);
+    saveCitySearch(cityLower);
     weather(searchEl.value);
-    cityBike(searchEl.value);
+    cityBike(cityLower);
     searchEl.value = "";
   }
 });
@@ -28,8 +29,8 @@ searchBtnEl.addEventListener("click", function (event) {
 function weather(localWeather) {
   fetch(
     "https://api.openweathermap.org/data/2.5/weather?q=" +
-      localWeather +
-      "&appid=a411ef0030322e0862cd44cde300dd84&units=imperial"
+    localWeather +
+    "&appid=a411ef0030322e0862cd44cde300dd84&units=imperial"
   )
     .then((response) => response.json())
     .then((data) => {
@@ -70,15 +71,30 @@ function weather(localWeather) {
 // CITYBIKE API FETCH FUNCTION
 function cityBike(city) {
   console.log(city)
-  fetch("http://api.citybik.es/v2/networks/" + city +"")
+  fetch("http://api.citybik.es/v2/networks/" + city + "")
     .then((response) => response.json())
-    .then((data) => console.log(data));
+    .then((data) => {
+      // bike data
+      console.log(data);
 
-  // not reading correctly
-  // document.querySelector(".location").textContent =
-  //   data.networks[0].location.city;
-  // console.log(data.networks[0].location.city);
+      var stationNetwork = data.network.stations
+      var stationName = data.network.stations[0];
+      console.log(stationName);
+      for (let index = 0; index < stationName.length; index++) {
+        console.log(stationName[index]);
+      }
+
+    });
+
+  // print Bike Data
+
+  document.querySelector(".stations-name").textContent = "Location: " + stationName;
+  console.log(stationName);
   //  var city = data.networks.location.city
+  // data.network.station[0].extra.address;
+  //console.log(station[0].extra.address);
+
+  //data.network.stations[0]
 
   // claring the search box
   searchEl.value = "";
