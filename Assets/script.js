@@ -15,12 +15,7 @@ searchBtnEl.addEventListener("click", function (event) {
   if (searchEl.value.trim() || searchEl.value.trim() !== "") {
     let city = searchEl.value.trim();
     let cityLower = city.toLowerCase();
-<<<<<<< HEAD
-    console.log(cityLower);
-=======
-    console.log(cityLower);		    
 
->>>>>>> 91f5d8d324fdbc85fb198c30561d7c5a22898c1c
     // need to add something here for typing an error...catch?
 
     saveCitySearch(cityLower);
@@ -95,11 +90,6 @@ function cityBike(city) {
       }
 
     });
-
-  // print Bike Data
-    .then((data) => {
-      console.log(data);
-
       // setting stations as an array and slicing it off at 6 return items
       let stationName = [];
       let stationAddress = [];
@@ -147,8 +137,7 @@ function cityBike(city) {
         li.innerText = "empty slots: " + emptySlots; //
         ul.appendChild(li);
       });
-    });
-};
+    };
 
 // function renderItems(data, city) {
 // bikeDisplay(data, city);
@@ -202,8 +191,8 @@ function cityBike(city) {
         li.innerText = "empty slots: " + emptySlots; //
         ul.appendChild(li);
       });
-    });
-}
+    
+
 
 // function renderItems(data, city) {
 // bikeDisplay(data, city);
