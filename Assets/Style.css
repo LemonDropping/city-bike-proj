@@ -1,5 +1,4 @@
 :root {
-  --background-color: #f5feff;
   --background-image: url("./images/Homepage-bg.jpeg");
 }
 
@@ -17,6 +16,7 @@
   max-width: 720px;
   padding: 0px;
   color: white;  
+  float: right;
 }
 
 body {
@@ -27,48 +27,3 @@ body {
   margin: 0;
   padding:0;
 }
-
-h1 {
-  font-family: 'Arsenal';
-}
-
-h2.title {
-  float: left;
-}
-
-/*.search-main {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: 5%;
-  bottom: 65%;
-  width: 20%;
-  border-radius: 15px;
-  position: absolute;
-  background-color: var(--background-color);;
-}
-.search-btn {
-  position: relative;
-  border-radius: 12px;
-  margin: 1 1 1 1;
-  padding: 1.5%;
-  background-color: var(--background-color);
-}
-
-.search-btn:hover {
-  color: #dbfbfd;
-  background-color: #28688C; 
-}
-
-.search-input::placeholder{
-  color: #565656;
-}
-  /*.search-title {
-  display: flex;
-  flex-wrap: wrap;
-  position: absolute;
-  width: 90%;
-  bottom: 50%;
-  background-color: var(--background-color);
-  align-items: center;
-} 
-*/
