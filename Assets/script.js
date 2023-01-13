@@ -93,10 +93,8 @@ function cityBike(city) {
 
         // bike api calls = to modify css easier - can change names of each
         stationName.push(data.network.stations[index].name); //station name
-        stationAddress.push(data.network.stations[index].extra.address); //station address
-        "number of bikes" +
+        stationAddress.push(data.network.stations[index].extra.address); //station address 
           freeBikes.push(data.network.stations[index].free_bikes); // number of free bikes
-        "number of bikes" +
           emptySlots.push(data.network.stations[index].empty_slots); // number of empty slots
       }
 
@@ -165,3 +163,11 @@ function saveCitySearch(city) {
   previousHistory[city] = true;
   localStorage.setItem("searchHistory", JSON.stringify(previousHistory));
 }
+
+
+
+
+
+
+
+
