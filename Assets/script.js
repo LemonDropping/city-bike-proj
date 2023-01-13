@@ -15,7 +15,12 @@ searchBtnEl.addEventListener("click", function (event) {
   if (searchEl.value.trim() || searchEl.value.trim() !== "") {
     let city = searchEl.value.trim();
     let cityLower = city.toLowerCase();
+<<<<<<< HEAD
     console.log(cityLower);
+=======
+    console.log(cityLower);		    
+
+>>>>>>> 91f5d8d324fdbc85fb198c30561d7c5a22898c1c
     // need to add something here for typing an error...catch?
 
     saveCitySearch(cityLower);
@@ -110,8 +115,10 @@ function cityBike(city) {
 
         // bike api calls = to modify css easier - can change names of each
         stationName.push(data.network.stations[index].name); //station name
-        stationAddress.push(data.network.stations[index].extra.address); //station address 
+        stationAddress.push(data.network.stations[index].extra.address); //station address
+        "number of bikes" +
           freeBikes.push(data.network.stations[index].free_bikes); // number of free bikes
+        "number of bikes" +
           emptySlots.push(data.network.stations[index].empty_slots); // number of empty slots
       }
 
@@ -141,7 +148,7 @@ function cityBike(city) {
         ul.appendChild(li);
       });
     });
-}
+};
 
 // function renderItems(data, city) {
 // bikeDisplay(data, city);
@@ -235,11 +242,3 @@ function saveCitySearch(city) {
   previousHistory[city] = true;
   localStorage.setItem("searchHistory", JSON.stringify(previousHistory));
 }
-
-
-
-
-
-
-
-
