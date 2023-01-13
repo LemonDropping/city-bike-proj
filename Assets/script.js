@@ -14,6 +14,8 @@ searchBtnEl.addEventListener("click", function (event) {
 
   if (searchEl.value.trim() || searchEl.value.trim() !== "") {
     let city = searchEl.value.trim();
+    let cityLower = city.toLowerCase();
+    console.log(cityLower);
 
     // need to add something here for typing an error...catch?
 
@@ -127,33 +129,6 @@ function cityBike(city) {
       });
     });
 }
-
-// function renderItems(data, city) {
-// bikeDisplay(data, city);
-// }
-
-// pulling CityBikeAPI key to the page
-// function bikeDisplay(data) {
-// let stationName = [];
-// for (let index = 0; index < data.network.stations.slice(0, 5).length; index++) {
-//   // console.log(data.network.stations[index]);
-//    stationName.push(data.network.stations[index].name);
-//   //  stationName.slice(0, 5)
-// console.log(stationName)
-// }
-// // creating list items
-// var ul = document.querySelector(".station-name")
-// stationName.forEach((element) => {
-//   var li = document.createElement("li");
-//   li.innerText = element;
-//   ul.appendChild(li);
-// });}
-
-// not reading correctly
-// document.querySelector(".location").textContent = data.network.name;
-// console.log(data.network.name);
-
-//
 
 // claring the search box
 // searchEl.value = "";
