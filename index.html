@@ -5,7 +5,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arsenal&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/style.css">
   <title>CityBike Finder</title>
 </head>
@@ -20,11 +23,9 @@
 
   <main>
     <!-- full page background-->
-    <section class="">
+    <section class="background">
       <div class="background-image">
-          <img src="assets/images/bike-lane.jpg" alt="" srcset="">
-          
-
+          <img class="responsive-img" src="assets/images/Homepage-bg.jpeg" alt="bg-image" >
           </div>
     </section>
 
@@ -32,8 +33,8 @@
     <div class="title">
       <h2 class="search-title">Find Your Bike Now</h2>
       <div class="search-main">
-        <input class="search input is-success is-rounded" type="text" placeholder="Search city here">
-        <button class="search-btn button is-primary is-light" type="button" href="#">Search</button>
+        <input class="search-input" type="text" placeholder="Search city here">
+        <button class="search-btn" type="button" href="#">Search</button>
       </div>
     </div>
   </main>
@@ -43,7 +44,6 @@
     <div class="container-fluid" id="current-weather">
       <div class="row">
 
-        <script src="./assets/script.js"></script>
       <!-- citybike api -->
       <p class="location"></p>
 

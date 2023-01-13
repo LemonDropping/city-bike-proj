@@ -2,7 +2,7 @@
 var cityBikeApiUrl = "http://api.citybik.es/v2/networks";
 var searchBtnEl = document.querySelector(".search-btn");
 var containerEl = document.querySelector(".container");
-var searchEl = document.querySelector(".search");
+var searchEl = document.querySelector(".search-input");
 
 // containers display to none upon opening
 containerEl.style.display = "none";
@@ -74,7 +74,7 @@ function cityBike(city) {
     .then((response) => response.json())
     .then((data) => console.log(data));
 
-  // not reading correctly
+    
   // document.querySelector(".location").textContent =
   //   data.networks[0].location.city;
   // console.log(data.networks[0].location.city);
