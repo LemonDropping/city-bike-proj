@@ -39,7 +39,7 @@ function weather(searchedCity) {
       console.log(searchedCity);
       // weather api print to page
       // temperature
-      document.querySelector(".temp").textContent = Math.round(data.main.temp);
+      document.querySelector(".temp").textContent = Math.round(data.main.temp) + "°F";
       console.log(Math.round(data.main.temp));
 
       // weather description
@@ -101,6 +101,27 @@ function cityBike(city) {
         "number of bikes" +
           emptySlots.push(data.network.stations[index].empty_slots); // number of empty slots
       }
+
+      // when going the template literal route - this will go in the for loop and eleminate the lists made below
+
+      // can add classes to html so that you can style in css
+
+// an example of how to write a template literal with syntaxHTML
+      // var element = document.createElement("div");
+      // element.innerHTML = 
+      // '<h4>' + 
+      //   '<p class = "test">' + {variable} + '</p>' + 
+      // '</h4>' + 
+      //   '<img src="' + {image variable}  +
+      // '<p>' + {variable} + '</p>' + 
+      // '<p>' + {variable} + '</p>' 
+      // Container.appendChild(element)
+
+      // an example of how to write a template literal with jquery
+      // '<h4><p> ${variable}</p></h4>
+      // <img src="` + ${variable}> 
+      // <p>${variable}</p>
+      // <p>${variable}</p>' 
 
       // creating list items for cityBike items
       var ul = document.querySelector(".station-name");
