@@ -97,14 +97,9 @@ function cityBike(city) {
         // bike api calls = to modify css easier - can change names of each
         stationName.push(data.network.stations[index].name); //station name
         stationAddress.push(data.network.stations[index].extra.address); //station address
-        "number of bikes" +
-          freeBikes.push(data.network.stations[index].free_bikes); // number of free bikes
-        "number of bikes" +
-          emptySlots.push(data.network.stations[index].empty_slots); // number of empty slots
-// stationName
-// stationAddress
-// freeBikes
-// emptySlots
+        freeBikes.push(data.network.stations[index].free_bikes); // number of free bikes
+        emptySlots.push(data.network.stations[index].empty_slots); // number of empty slots
+
 function bikeInformation (){
   var bikeHtml = document.createElement("div");
   bikeHtml.innerHTML = 
@@ -119,14 +114,13 @@ function bikeInformation (){
   console.log(bikeHtml)
  }
  BikeContainer.innerhtml = bikeInformation();
-
-      }
+      
 
       // when going the template literal route - this will go in the for loop and eleminate the lists made below
 
       // can add classes to html so that you can style in css
 
-{/* <h3>"Station Name: "> 
+/* <h3>"Station Name: "> 
   <p> {stationName} </p>
 </h3>
 <h3>"Station Address: "> 
