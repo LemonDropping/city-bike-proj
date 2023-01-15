@@ -3,6 +3,7 @@ var cityBikeApiUrl = "http://api.citybik.es/v2/networks";
 var searchBtnEl = document.querySelector(".search-btn");
 var containerEl = document.querySelector(".container");
 var searchEl = document.querySelector(".search-input");
+var BikeContainer = document.querySelector(".bike-api-container")
 
 // containers display to none upon opening
 containerEl.style.display = "none";
@@ -100,11 +101,43 @@ function cityBike(city) {
           freeBikes.push(data.network.stations[index].free_bikes); // number of free bikes
         "number of bikes" +
           emptySlots.push(data.network.stations[index].empty_slots); // number of empty slots
+// stationName
+// stationAddress
+// freeBikes
+// emptySlots
+function bikeInformation (){
+  var bikeHtml = document.createElement("div");
+  bikeHtml.innerHTML = 
+  `<div> 
+    <h3>Station Name: <p> ${stationName} </p> </h3>
+    <h3>Station Address: <p> ${stationAddress} </p></h3>
+    <h3># of Available Bikes: <p> ${freeBikes} </p></h3>
+    <h3># of Empty Slots: <p> ${emptySlots} </p></h3>
+    <br>
+  </div>`
+  BikeContainer.appendChild(bikeHtml)
+  console.log(bikeHtml)
+ }
+ BikeContainer.innerhtml = bikeInformation();
+
       }
 
       // when going the template literal route - this will go in the for loop and eleminate the lists made below
 
       // can add classes to html so that you can style in css
+
+{/* <h3>"Station Name: "> 
+  <p> {stationName} </p>
+</h3>
+<h3>"Station Address: "> 
+  <p> {stationAddress} </p>
+</h3>
+<h3> "Available Bikes: "> 
+  <p> {freeBikes} </p>
+</h3>
+<h3> Empty Slots: "> 
+  <p> {emptySlots} </p>
+</h3>  */}
 
 // an example of how to write a template literal with syntaxHTML
       // var element = document.createElement("div");
@@ -123,31 +156,33 @@ function cityBike(city) {
       // <p>${variable}</p>
       // <p>${variable}</p>' 
 
+
+  // DO NOT DELETE THE CODE BELOW
       // creating list items for cityBike items
-      var ul = document.querySelector(".station-name");
-      stationName.forEach((name) => {
-        var li = document.createElement("li");
-        li.innerText = "location name: " + name; //
-        ul.appendChild(li);
-      });
+      // var ul = document.querySelector(".station-name");
+      // stationName.forEach((name) => {
+      //   var li = document.createElement("li");
+      //   li.innerText = "location name: " + name; //
+      //   ul.appendChild(li);
+      // });
 
-      stationAddress.forEach((address) => {
-        var li = document.createElement("li");
-        li.innerText = "address: " + address; //
-        ul.appendChild(li);
-      });
+      // stationAddress.forEach((address) => {
+      //   var li = document.createElement("li");
+      //   li.innerText = "address: " + address; //
+      //   ul.appendChild(li);
+      // });
 
-      freeBikes.forEach((freeBikes) => {
-        var li = document.createElement("li");
-        li.innerText = "free bikes: " + freeBikes; //
-        ul.appendChild(li);
-      });
+      // freeBikes.forEach((freeBikes) => {
+      //   var li = document.createElement("li");
+      //   li.innerText = "free bikes: " + freeBikes; //
+      //   ul.appendChild(li);
+      // });
 
-      emptySlots.forEach((emptySlots) => {
-        var li = document.createElement("li");
-        li.innerText = "empty slots: " + emptySlots; //
-        ul.appendChild(li);
-      });
+      // emptySlots.forEach((emptySlots) => {
+      //   var li = document.createElement("li");
+      //   li.innerText = "empty slots: " + emptySlots; //
+      //   ul.appendChild(li);
+      // });
     });
 }
 
