@@ -96,6 +96,9 @@ function cityBike(city) {
         let emptySlots = station.empty_slots; //empty slots
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 21a8c73a9e1a024742191b45f80c77698b75f0fd
         // template literal placing the data on the page - edit this in css
         function bikeInformation() {
           var bikeHtml = document.createElement("div");
@@ -111,6 +114,7 @@ function cityBike(city) {
         }
         BikeContainer.innerhtml = bikeInformation();
       });
+<<<<<<< HEAD
 =======
       for (
         let index = 0;
@@ -203,6 +207,8 @@ function bikeInformation (){
       //   ul.appendChild(li);
       // });
 >>>>>>> c7c109bb3ff8bdf46c64c0555b1725d5f44988e5
+=======
+>>>>>>> 21a8c73a9e1a024742191b45f80c77698b75f0fd
     });
 }
 
