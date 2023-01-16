@@ -147,7 +147,25 @@ function cityBike(city) {
 // bikeDisplay(data, city);
 // }
 
+// pulling CityBikeAPI key to the page
+// function bikeDisplay(data) {
+// let stationName = [];
+// for (let index = 0; index < data.network.stations.slice(0, 5).length; index++) {
+//   // console.log(data.network.stations[index]);
+//    stationName.push(data.network.stations[index].name);
+//   //  stationName.slice(0, 5)
+// console.log(stationName)
+// }
+// // creating list items
+// var ul = document.querySelector(".station-name")
+// stationName.forEach((element) => {
+//   var li = document.createElement("li");
+//   li.innerText = element;
+//   ul.appendChild(li);
+// });}
 
+  document.querySelector(".stations-name").textContent = "Location: " + stationName;
+  console.log(stationName);
   //  var city = data.networks.location.city
   // data.network.station[0].extra.address;
   //console.log(station[0].extra.address);
@@ -195,8 +213,6 @@ function cityBike(city) {
         li.innerText = "empty slots: " + emptySlots; //
         ul.appendChild(li);
       });
-    });
-}
 
 // function renderItems(data, city) {
 // bikeDisplay(data, city);
