@@ -95,10 +95,6 @@ function cityBike(city) {
         let freeBikes = station.free_bikes; //available bikes
         let emptySlots = station.empty_slots; //empty slots
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 21a8c73a9e1a024742191b45f80c77698b75f0fd
         // template literal placing the data on the page - edit this in css
         function bikeInformation() {
           var bikeHtml = document.createElement("div");
@@ -114,101 +110,6 @@ function cityBike(city) {
         }
         BikeContainer.innerhtml = bikeInformation();
       });
-<<<<<<< HEAD
-=======
-      for (
-        let index = 0;
-        index < data.network.stations.slice(0, 5).length;
-        index++
-      ) {
-        console.log(data.network.stations[index].extra.address);
-
-        // bike api calls = to modify css easier - can change names of each
-        stationName.push(data.network.stations[index].name); //station name
-        stationAddress.push(data.network.stations[index].extra.address); //station address
-        freeBikes.push(data.network.stations[index].free_bikes); // number of free bikes
-        emptySlots.push(data.network.stations[index].empty_slots); // number of empty slots
-
-function bikeInformation (){
-  var bikeHtml = document.createElement("div");
-  bikeHtml.innerHTML = 
-  `<div> 
-    <h3>Station Name: <p> ${stationName} </p> </h3>
-    <h3>Station Address: <p> ${stationAddress} </p></h3>
-    <h3># of Available Bikes: <p> ${freeBikes} </p></h3>
-    <h3># of Empty Slots: <p> ${emptySlots} </p></h3>
-    <br>
-  </div>`
-  BikeContainer.appendChild(bikeHtml)
-  console.log(bikeHtml)
- }
- BikeContainer.innerhtml = bikeInformation();
-      
-
-      // when going the template literal route - this will go in the for loop and eleminate the lists made below
-
-      // can add classes to html so that you can style in css
-
-/* <h3>"Station Name: "> 
-  <p> {stationName} </p>
-</h3>
-<h3>"Station Address: "> 
-  <p> {stationAddress} </p>
-</h3>
-<h3> "Available Bikes: "> 
-  <p> {freeBikes} </p>
-</h3>
-<h3> Empty Slots: "> 
-  <p> {emptySlots} </p>
-</h3>  */}
-
-// an example of how to write a template literal with syntaxHTML
-      // var element = document.createElement("div");
-      // element.innerHTML = 
-      // '<h4>' + 
-      //   '<p class = "test">' + {variable} + '</p>' + 
-      // '</h4>' + 
-      //   '<img src="' + {image variable}  +
-      // '<p>' + {variable} + '</p>' + 
-      // '<p>' + {variable} + '</p>' 
-      // Container.appendChild(element)
-
-      // an example of how to write a template literal with jquery
-      // '<h4><p> ${variable}</p></h4>
-      // <img src="` + ${variable}> 
-      // <p>${variable}</p>
-      // <p>${variable}</p>' 
-
-
-  // DO NOT DELETE THE CODE BELOW
-      // creating list items for cityBike items
-      // var ul = document.querySelector(".station-name");
-      // stationName.forEach((name) => {
-      //   var li = document.createElement("li");
-      //   li.innerText = "location name: " + name; //
-      //   ul.appendChild(li);
-      // });
-
-      // stationAddress.forEach((address) => {
-      //   var li = document.createElement("li");
-      //   li.innerText = "address: " + address; //
-      //   ul.appendChild(li);
-      // });
-
-      // freeBikes.forEach((freeBikes) => {
-      //   var li = document.createElement("li");
-      //   li.innerText = "free bikes: " + freeBikes; //
-      //   ul.appendChild(li);
-      // });
-
-      // emptySlots.forEach((emptySlots) => {
-      //   var li = document.createElement("li");
-      //   li.innerText = "empty slots: " + emptySlots; //
-      //   ul.appendChild(li);
-      // });
->>>>>>> c7c109bb3ff8bdf46c64c0555b1725d5f44988e5
-=======
->>>>>>> 21a8c73a9e1a024742191b45f80c77698b75f0fd
     });
 }
 
