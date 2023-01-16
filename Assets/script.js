@@ -23,7 +23,7 @@ searchBtnEl.addEventListener("click", function (event) {
     saveCitySearch(city);
     weather(city);
     cityBike(city);
-    map(city)
+    // map(city)
     searchEl.value = "";
   }
 });
