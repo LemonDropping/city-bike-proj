@@ -99,10 +99,10 @@ function cityBike(city) {
         function bikeInformation() {
           var bikeHtml = document.createElement("div");
           bikeHtml.innerHTML = `<div class = "bike-container"> 
-             <h3>Station Name: <p> ${stationName} </p> </h3>
-             <h3>Station Address: <p> ${stationAddress} </p></h3>
-             <h3># of Available Bikes: <p> ${freeBikes} </p></h3>
-             <h3># of Empty Slots: <p> ${emptySlots} </p></h3>
+             <h3>Station Name:</h3> <p> ${stationName} </p> 
+             <h3>Station Address:</h3> <p> ${stationAddress} </p>
+             <h3># of Available Bikes:</h3> <p> ${freeBikes} </p>
+             <h3># of Empty Slots:</h3> <p> ${emptySlots} </p>
             <br>
           </div>`;
           BikeContainer.appendChild(bikeHtml);

@@ -14,11 +14,12 @@
   background-color: #168166;
   box-shadow: 1px 5px 25px 3px #444;
   border-radius: 10px;
-  max-width: 720px;
+  max-width: 300px;
   padding: 0px;
   color: white;  
   
 }
+
 
 body {
   background: var(--background-image);
@@ -34,12 +35,7 @@ body {
 #map { 
   height: 300px; 
   width: 70%;
-.title, .search-title{
- 
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  font-size:40px;
 }
-
 /* .search-main{ 
   display: flex;
   justify-content: center;
@@ -59,10 +55,31 @@ body {
 
 
 #bike {
+  display: inline-block;
   background-color: #168166;
   box-shadow: 1px 5px 25px 3px #444;
   border-radius: 10px;
-  max-width: 720px;
+  max-width: fit-content;
   padding: 0px;
-  color: white;  
+  color:white;  
+  
+  
 }
+
+.bike-container{
+  display: flex;
+  
+  
+
+}
+
+.bike-container h3{
+  font-size: 15px;
+  color: black;
+}
+
+.bike-container p{
+  font-size: 10px;
+  
+   
+} 
