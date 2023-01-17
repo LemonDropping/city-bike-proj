@@ -29,7 +29,7 @@
   <header class="hero is-success">
     <div class="hero-body">
       <h1 class="title">City Bike Finder</h1>
-    <p class="subtitle">A simple way to find a bike in your area</p>
+    <p class="subtitle">A simple way to find a free bike in your area with up to date weather conditions!</p>
     </div>
   </header>
 
@@ -44,11 +44,11 @@
     </section>
 
     
-    <div class="title">
+    <div class="title-two">
       <h2 class="search-title">Find Your Bike Now TODAY</h2>
       <div class="search-main">
-        <input class="search-input" type="text" placeholder="Search city here">
-        <a class="search-btn waves-effect waves-light btn"><i class="material-icons left">cloud</i>button</a>
+        <input class="search-input" id="search-bar" type="text" placeholder="Search city here">
+        <a class="search-btn waves-effect waves-light btn"><i class="material-icons left">directions_bike</i>Search</a>
       </div>
     </div>
   </main>
@@ -56,8 +56,10 @@
   <div id="map"></div>
 
       <!-- citybike api -->
-<div class="bike-api-container">
-  <ul class="station-name"></ul>
+<div class="bike-api-container" id="bike">
+  <div class="row">
+  <ul class="station-name col s6"></ul>
+</div>
 
 
 </div>
