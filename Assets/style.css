@@ -28,7 +28,27 @@ body {
   padding:0;
 }
 
+header {
+  margin-right: 50px;
+}
+
+.subtitle {
+  font-size: 26px;
+}
+
+.title-search {
+  margin-left: 10%;
+}
+
+.search-main {
+  width: 30%;
+  padding: 1%;
+  border: 2px solid #444;
+  box-shadow: #444 10deg 5px 5px;
+
+}
 #map { 
   height: 300px; 
   width: 70%;
 }
+
