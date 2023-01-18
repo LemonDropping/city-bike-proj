@@ -23,7 +23,7 @@ searchBtnEl.addEventListener("click", function (event) {
     saveCitySearch(city);
     weather(city);
     cityBike(city);
-    // map(city)
+    map(city)
     searchEl.value = "";
   }
 });
@@ -95,14 +95,14 @@ function cityBike(city) {
         let freeBikes = station.free_bikes; //available bikes
         let emptySlots = station.empty_slots; //empty slots
 
-        // template literal placing the data on the page - edit this in css
+        // template literal placing the data on the page - edit this in css - CHANGE TO SPAN TAGS. CAN ADD A CLASS TO SPAN
         function bikeInformation() {
           var bikeHtml = document.createElement("div");
           bikeHtml.innerHTML = `<div class = "bike-container"> 
-             <h3>Station Name: <p> ${stationName} </p> </h3>
-             <h3>Station Address: <p> ${stationAddress} </p></h3>
-             <h3># of Available Bikes: <p> ${freeBikes} </p></h3>
-             <h3># of Empty Slots: <p> ${emptySlots} </p></h3>
+             <h3>Station Name: <span> ${stationName} </span></h3> 
+             <h3>Station Address:</h3> <p> ${stationAddress} </p>
+             <h3># of Available Bikes:</h3> <p> ${freeBikes} </p>
+             <h3># of Empty Slots:</h3> <p> ${emptySlots} </p>
             <br>
           </div>`;
           BikeContainer.appendChild(bikeHtml);
@@ -115,21 +115,21 @@ function cityBike(city) {
 
 // WORKING ON A MAP FUNCTION
 
-// function map(){
-//   // var long = data.stations.coord.lat;
-//   // var lat = data.stations.coord.lon;
-//   // var latlng = L.latLng(50.5, 30.5);
-// var map = L.map('map').setView([51.505, -0.09], 13);
-// console.log(map)
+function map(){
+  // var long = data.stations.coord.lat;
+  // var lat = data.stations.coord.lon;
+  // var latlng = L.latLng(50.5, 30.5);
+var map = L.map('map').setView([51.505, -0.09], 13);
+console.log(map)
 
-// L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-//     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-// }).addTo(map);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
 
-// L.marker([51.5, -0.09]).addTo(map)
-//     .bindPopup('searched city name')
-//     .openPopup();
-// }
+L.marker([51.5, -0.09]).addTo(map)
+    .bindPopup('searched city name')
+    .openPopup();
+}
 
 
 
