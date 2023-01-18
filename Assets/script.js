@@ -19,8 +19,8 @@ searchBtnEl.addEventListener("click", function (event) {
     let city = searchEl.value.trim();
     let cityLower = city.toLowerCase();
     console.log(cityLower);
-    // need to add something here for typing an error...catch?
 
+    // Catch fucntion
     saveCitySearch(city);
     weather(city);
     cityBike(city);
@@ -29,6 +29,23 @@ searchBtnEl.addEventListener("click", function (event) {
     weather(searchEl.value);
     cityBike(cityLower);
     searchEl.value = "";
+  }
+  else {
+    function cityNA() {
+      var message = document.getElementById("p01");
+      message.innerHTML = "";
+      let x = document.getElementById("demo").value;
+      try {
+        if (x.trim() == "") throw "empty";
+        if (isNaN(x)) throw "not a number";
+        x = Number(x);
+        if (x < 5) throw "too low";
+        if (x > 10) throw "too high";
+      }
+      catch (err) {
+        message.innerHTML = "Input is " + err;
+      }
+    }
   }
 });
 
@@ -91,7 +108,6 @@ function cityBike(city) {
   fetch("http://api.citybik.es/v2/networks/" + city + "")
     .then((response) => response.json())
     .then((data) => {
-      // bike data
       console.log(data);
 
       var stationNetwork = data.network.stations
@@ -103,112 +119,108 @@ function cityBike(city) {
 
     });
 
-  // print Bike Data
-    .then((data) => {
-      console.log(data);
+  // for each loop calling each variable
+  data.network.stations.slice(0, 5).forEach((station) => {
+    console.log(station.extra.address);
+    let stationName = station.name; //station name
+    let stationAddress = station.extra.address; //station address
+    let freeBikes = station.free_bikes; //available bikes
+    let emptySlots = station.empty_slots; //empty slots
 
-      // for each loop calling each variable
-      data.network.stations.slice(0, 5).forEach((station) => {
-        console.log(station.extra.address);
-        let stationName = station.name; //station name
-        let stationAddress = station.extra.address; //station address
-        let freeBikes = station.free_bikes; //available bikes
-        let emptySlots = station.empty_slots; //empty slots
+    // template literal placing the data on the page - edit this in css 
+    function bikeInformation() {
+      var bikeHtml = document.createElement("div");
 
-        // template literal placing the data on the page - edit this in css 
-        function bikeInformation() {
-          var bikeHtml = document.createElement("div");
-      
-          var stationNameDiv = document.createElement("div");
-          stationNameDiv.innerHTML = `<h3>Station Name: <span class="results"> ${stationName} </span></h3>`;
-          bikeHtml.appendChild(stationNameDiv);
-      
-          var stationAddressDiv = document.createElement("div");
-          stationAddressDiv.innerHTML = `<h3>Station Address: <span class="results"> ${stationAddress} </span></h3>`;
-          bikeHtml.appendChild(stationAddressDiv);
-      
-          var freeBikesDiv = document.createElement("div");
-          freeBikesDiv.innerHTML = `<h3># of Available Bikes: <span class="results"> ${freeBikes} </span></h3>`;
-          bikeHtml.appendChild(freeBikesDiv);
-      
-          var emptySlotsDiv = document.createElement("div");
-          emptySlotsDiv.innerHTML = `<h3># of Empty Slots: <span class="results"> ${emptySlots} </span></h3>`;
-          bikeHtml.appendChild(emptySlotsDiv);
-      
-          bikeContainer.appendChild(bikeHtml);
-          console.log(bikeHtml);
-      }
-        // function bikeInformation() {
-        //   var bikeHtml = document.createElement("div");
-        //   bikeHtml.innerHTML = `<div class = "bike-container"> 
-        //   <h3>Station Name: <span class="results"> ${stationName} </span></h3> 
-        //     <br>
-        //   <h3>Station Address: <span class="results">${stationAddress} </span></h3>
-        //      <br>
-        //   <h3># of Available Bikes: <span class="results"> ${freeBikes} </span></h3>
-        //     <br>
-        //   <h3># of Empty Slots: <span class="results"> ${emptySlots} </span></h3>
-        //     <br>
-        //   </div>`;
-        //   BikeContainer.appendChild(bikeHtml);
-        //   console.log(bikeHtml);
-        // }
-        bikeContainer.innerhtml = bikeInformation();
-      });
+      var stationNameDiv = document.createElement("div");
+      stationNameDiv.innerHTML = `<h3>Station Name: <span class="results"> ${stationName} </span></h3>`;
+      bikeHtml.appendChild(stationNameDiv);
 
-// function renderItems(data, city) {
-// bikeDisplay(data, city);
-// }
+      var stationAddressDiv = document.createElement("div");
+      stationAddressDiv.innerHTML = `<h3>Station Address: <span class="results"> ${stationAddress} </span></h3>`;
+      bikeHtml.appendChild(stationAddressDiv);
 
-// pulling CityBikeAPI key to the page
-// function bikeDisplay(data) {
-// let stationName = [];
-// for (let index = 0; index < data.network.stations.slice(0, 5).length; index++) {
-//   // console.log(data.network.stations[index]);
-//    stationName.push(data.network.stations[index].name);
-//   //  stationName.slice(0, 5)
-// console.log(stationName)
-// }
-// // creating list items
-// var ul = document.querySelector(".station-name")
-// stationName.forEach((element) => {
-//   var li = document.createElement("li");
-//   li.innerText = element;
-//   ul.appendChild(li);
-// });}
+      var freeBikesDiv = document.createElement("div");
+      freeBikesDiv.innerHTML = `<h3># of Available Bikes: <span class="results"> ${freeBikes} </span></h3>`;
+      bikeHtml.appendChild(freeBikesDiv);
 
-// not reading correctly
-// document.querySelector(".location").textContent = data.network.name;
-// console.log(data.network.name);
+      var emptySlotsDiv = document.createElement("div");
+      emptySlotsDiv.innerHTML = `<h3># of Empty Slots: <span class="results"> ${emptySlots} </span></h3>`;
+      bikeHtml.appendChild(emptySlotsDiv);
 
-//
+      bikeContainer.appendChild(bikeHtml);
+      console.log(bikeHtml);
+    }
+    // function bikeInformation() {
+    //   var bikeHtml = document.createElement("div");
+    //   bikeHtml.innerHTML = `<div class = "bike-container"> 
+    //   <h3>Station Name: <span class="results"> ${stationName} </span></h3> 
+    //     <br>
+    //   <h3>Station Address: <span class="results">${stationAddress} </span></h3>
+    //      <br>
+    //   <h3># of Available Bikes: <span class="results"> ${freeBikes} </span></h3>
+    //     <br>
+    //   <h3># of Empty Slots: <span class="results"> ${emptySlots} </span></h3>
+    //     <br>
+    //   </div>`;
+    //   BikeContainer.appendChild(bikeHtml);
+    //   console.log(bikeHtml);
+    // }
+    bikeContainer.innerhtml = bikeInformation();
+  });
 
-// WORKING ON A MAP FUNCTION
+  // function renderItems(data, city) {
+  // bikeDisplay(data, city);
+  // }
 
-function map(){
-  // var long = data.stations.coord.lat;
-  // var lat = data.stations.coord.lon;
-  // var latlng = L.latLng(50.5, 30.5);
-var map = L.map('map').setView([51.505, -0.09], 13);
-console.log(map)
+  // pulling CityBikeAPI key to the page
+  // function bikeDisplay(data) {
+  // let stationName = [];
+  // for (let index = 0; index < data.network.stations.slice(0, 5).length; index++) {
+  //   // console.log(data.network.stations[index]);
+  //    stationName.push(data.network.stations[index].name);
+  //   //  stationName.slice(0, 5)
+  // console.log(stationName)
+  // }
+  // // creating list items
+  // var ul = document.querySelector(".station-name")
+  // stationName.forEach((element) => {
+  //   var li = document.createElement("li");
+  //   li.innerText = element;
+  //   ul.appendChild(li);
+  // });}
 
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
+  // not reading correctly
+  // document.querySelector(".location").textContent = data.network.name;
+  // console.log(data.network.name);
 
-L.marker([51.5, -0.09]).addTo(map)
-    .bindPopup('searched city name')
-    .openPopup();
-}
+  //
+
+  // WORKING ON A MAP FUNCTION
+
+  function map() {
+    // var long = data.stations.coord.lat;
+    // var lat = data.stations.coord.lon;
+    // var latlng = L.latLng(50.5, 30.5);
+    var map = L.map('map').setView([51.505, -0.09], 13);
+    console.log(map)
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    L.marker([51.5, -0.09]).addTo(map)
+      .bindPopup('searched city name')
+      .openPopup();
+  }
 
 
 
-// Saving the past searches into local storage
+  // Saving the past searches into local storage
 
 
 
-function saveCitySearch(city) {
-  let previousHistory = JSON.parse(localStorage.getItem("searchHistory")) || {};
-  previousHistory[city] = true;
-  localStorage.setItem("searchHistory", JSON.stringify(previousHistory));
-}
+  function saveCitySearch(city) {
+    let previousHistory = JSON.parse(localStorage.getItem("searchHistory")) || {};
+    previousHistory[city] = true;
+    localStorage.setItem("searchHistory", JSON.stringify(previousHistory));
+  }
