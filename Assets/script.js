@@ -3,15 +3,17 @@ var cityBikeApiUrl = "http://api.citybik.es/v2/networks";
 var searchBtnEl = document.querySelector(".search-btn");
 var containerEl = document.querySelector(".container");
 var searchEl = document.querySelector(".search-input");
-var BikeContainer = document.querySelector(".bike-api-container");
+var bikeContainer = document.querySelector(".bike-api-container");
 
 // containers display to none upon opening
 containerEl.style.display = "none";
+bikeContainer.style.display = "none";
 
 // event listener upon clicking search to display containers and fetch API's
 searchBtnEl.addEventListener("click", function (event) {
   event.preventDefault();
   containerEl.style.display = "block";
+  bikeContainer.style.display = "block";
 
   if (searchEl.value.trim() || searchEl.value.trim() !== "") {
     let city = searchEl.value.trim();
@@ -113,20 +115,45 @@ function cityBike(city) {
         let freeBikes = station.free_bikes; //available bikes
         let emptySlots = station.empty_slots; //empty slots
 
-        // template literal placing the data on the page - edit this in css
+        // template literal placing the data on the page - edit this in css 
         function bikeInformation() {
           var bikeHtml = document.createElement("div");
-          bikeHtml.innerHTML = `<div class = "bike-container"> 
-             <h3>Station Name: <p> ${stationName} </p> </h3>
-             <h3>Station Address: <p> ${stationAddress} </p></h3>
-             <h3># of Available Bikes: <p> ${freeBikes} </p></h3>
-             <h3># of Empty Slots: <p> ${emptySlots} </p></h3>
-            <br>
-          </div>`;
-          BikeContainer.appendChild(bikeHtml);
+      
+          var stationNameDiv = document.createElement("div");
+          stationNameDiv.innerHTML = `<h3>Station Name: <span class="results"> ${stationName} </span></h3>`;
+          bikeHtml.appendChild(stationNameDiv);
+      
+          var stationAddressDiv = document.createElement("div");
+          stationAddressDiv.innerHTML = `<h3>Station Address: <span class="results"> ${stationAddress} </span></h3>`;
+          bikeHtml.appendChild(stationAddressDiv);
+      
+          var freeBikesDiv = document.createElement("div");
+          freeBikesDiv.innerHTML = `<h3># of Available Bikes: <span class="results"> ${freeBikes} </span></h3>`;
+          bikeHtml.appendChild(freeBikesDiv);
+      
+          var emptySlotsDiv = document.createElement("div");
+          emptySlotsDiv.innerHTML = `<h3># of Empty Slots: <span class="results"> ${emptySlots} </span></h3>`;
+          bikeHtml.appendChild(emptySlotsDiv);
+      
+          bikeContainer.appendChild(bikeHtml);
           console.log(bikeHtml);
-        }
-        BikeContainer.innerhtml = bikeInformation();
+      }
+        // function bikeInformation() {
+        //   var bikeHtml = document.createElement("div");
+        //   bikeHtml.innerHTML = `<div class = "bike-container"> 
+        //   <h3>Station Name: <span class="results"> ${stationName} </span></h3> 
+        //     <br>
+        //   <h3>Station Address: <span class="results">${stationAddress} </span></h3>
+        //      <br>
+        //   <h3># of Available Bikes: <span class="results"> ${freeBikes} </span></h3>
+        //     <br>
+        //   <h3># of Empty Slots: <span class="results"> ${emptySlots} </span></h3>
+        //     <br>
+        //   </div>`;
+        //   BikeContainer.appendChild(bikeHtml);
+        //   console.log(bikeHtml);
+        // }
+        bikeContainer.innerhtml = bikeInformation();
       });
 
 // function renderItems(data, city) {
@@ -158,21 +185,21 @@ function cityBike(city) {
 
 // WORKING ON A MAP FUNCTION
 
-// function map(){
-//   // var long = data.stations.coord.lat;
-//   // var lat = data.stations.coord.lon;
-//   // var latlng = L.latLng(50.5, 30.5);
-// var map = L.map('map').setView([51.505, -0.09], 13);
-// console.log(map)
+function map(){
+  // var long = data.stations.coord.lat;
+  // var lat = data.stations.coord.lon;
+  // var latlng = L.latLng(50.5, 30.5);
+var map = L.map('map').setView([51.505, -0.09], 13);
+console.log(map)
 
-// L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-//     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-// }).addTo(map);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
 
-// L.marker([51.5, -0.09]).addTo(map)
-//     .bindPopup('searched city name')
-//     .openPopup();
-// }
+L.marker([51.5, -0.09]).addTo(map)
+    .bindPopup('searched city name')
+    .openPopup();
+}
 
 
 

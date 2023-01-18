@@ -15,12 +15,10 @@
 
   <!-- LEAFLET LINK -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-     integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
-     crossorigin=""/>
-<!-- LEAFLET SCRIPT -->
-     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
-     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
-     crossorigin=""></script>
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+  <!-- LEAFLET SCRIPT -->
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
 
   <title>CityBike Finder</title>
 </head>
@@ -29,7 +27,7 @@
   <header class="hero is-success">
     <div class="hero-body">
       <h1 class="title">City Bike Finder</h1>
-    <p class="subtitle">A simple way to find a bike in your area</p>
+      <p class="subtitle">A simple way to find a free bike in your area with up to date weather conditions!</p>
     </div>
   </header>
 
@@ -37,59 +35,62 @@
     <!-- full page background-->
     <section class="background">
       <div class="background-image">
-          <!-- <img class="responsive-img" src="assets/images/Homepage-bg.jpeg" alt="bg-image" > -->
+        <!-- <img class="responsive-img" src="assets/images/Homepage-bg.jpeg" alt="bg-image" > -->
 
-          </div>
+
+      </div>
     </section>
 
-    
-    <div class="title">
+
+    <div class="title-two">
       <h2 class="search-title">Find Your Bike Now TODAY</h2>
       <div class="search-main">
-        <input class="search-input" type="text" placeholder="Search city here">
-        <a class="search-btn waves-effect waves-light btn"><i class="material-icons left">cloud</i>button</a>
+        <input class="search-input" id="search-bar" type="text" placeholder="Search city here">
+        <a class="search-btn waves-effect waves-light btn"><i class="material-icons left">directions_bike</i>Search</a>
       </div>
     </div>
   </main>
 
   <div id="map"></div>
 
-      <!-- citybike api -->
-<div class="bike-api-container">
-  <ul class="station-name"></ul>
-
-
-</div>
 
 
 
-  <!-- TEST BOX -->
-  <div class="container" id="wrapper">
-    <div class="container-fluid" id="current-weather">
+  <div class="big-container">
+    <!-- citybike api -->
+    <div class="bike-api-container" id="bike">
       <div class="row">
+        <ul class="station-name col s6"></ul>
+      </div>
+    </div>
+
+    <!-- weather container-->
+    <div class="container" id="wrapper">
+      <div class="container-fluid" id="current-weather">
+        <div class="row">
 
 
 
-      <!-- weather api -->
-      <p class="temp"></p>
-      <img class="icon">
-      <p class ="description"></p>
-      <p class="sunrise"></p>
-      <p class="sunset"></p>
+          <!-- weather api -->
+          <p class="temp"></p>
+          <img class="icon" alt="" />
+          <p class="description"></p>
+          <p class="sunrise"></p>
+          <p class="sunset"></p>
+        </div>
       </div>
     </div>
   </div>
 
 
+
+
   <footer>
     <p>&copy;Group 1</p>
   </footer>
-<!-- dayjs -->
-<script
-    src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
-    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
-    crossorigin="anonymous"
-  ></script>
+  <!-- dayjs -->
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
   <!-- javascript -->
   <script src="./assets/script.js"></script>
 </body>
