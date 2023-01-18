@@ -74,7 +74,7 @@ body {
 
 }
 
-.bike-container h3{
+/* .bike-container h3{
   font-size: 15px;
   color: black;
 }
@@ -83,4 +83,17 @@ body {
   font-size: 10px;
   
    
-} 
+}  */
+
+/* can just style by the h3 and results class */
+h3 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #444;
+  line-height: 0%;
+}
+
+.results {
+  font-weight: lighter;
+  color: antiquewhite;
+}
