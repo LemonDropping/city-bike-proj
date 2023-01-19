@@ -17,7 +17,7 @@
   max-width: 300px;
   padding: 0px;
   color: white;  
-  margin-bottom: 300px;
+  margin-bottom: 500px;
   margin-left: 100px;
 }
 
@@ -32,6 +32,7 @@ body {
   padding:0;
 }
 
+
 h2 {
   margin-left: 20px;
   font-size: 40px;
@@ -41,16 +42,8 @@ header {
   margin-left: 20px;
 }
 /* 
-#map { 
-  height: 300px; 
-  width: 70%;
-} */
+#
 
-/* .search-main{ 
-  display: flex;
-  justify-content: center;
-
-}*/
 
 
 
@@ -62,11 +55,12 @@ header {
 }
 
 
+
 #bike {
   background-color: #168166;
   box-shadow: 1px 5px 25px 3px #444;
   border-radius: 10px;
-  max-width: fit-content;
+  width: 35%;
   padding: 0px;
   color:white;  
   margin-left: 15px;
