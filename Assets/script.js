@@ -3,34 +3,41 @@ var cityBikeApiUrl = "http://api.citybik.es/v2/networks";
 var searchBtnEl = document.querySelector(".search-btn");
 var containerEl = document.querySelector(".container");
 var searchEl = document.querySelector(".search-input");
+var bikeContainer = document.querySelector(".bike-api-container");
 
 // containers display to none upon opening
 containerEl.style.display = "none";
+bikeContainer.style.display = "none";
 
 // event listener upon clicking search to display containers and fetch API's
 searchBtnEl.addEventListener("click", function (event) {
   event.preventDefault();
   containerEl.style.display = "block";
+  bikeContainer.style.display = "block";
 
   if (searchEl.value.trim() || searchEl.value.trim() !== "") {
     let city = searchEl.value.trim();
     let cityLower = city.toLowerCase();
     console.log(cityLower);
+
     // need to add something here for typing an error...catch?
 
-    saveCitySearch(cityLower);
-    weather(searchEl.value);
-    cityBike(cityLower);
+    saveCitySearch(city);
+    weather(city);
+    cityBike(city);
+    map(city)
     searchEl.value = "";
   }
 });
+
+
 
 // WEATHER API FETCH FUNCTION
 function weather(searchedCity) {
   fetch(
     "https://api.openweathermap.org/data/2.5/weather?q=" +
-    localWeather +
-    "&appid=a411ef0030322e0862cd44cde300dd84&units=imperial"
+      searchedCity +
+      "&appid=a411ef0030322e0862cd44cde300dd84&units=imperial"
   )
     .then((response) => response.json())
     .then((data) => {
@@ -38,7 +45,8 @@ function weather(searchedCity) {
       console.log(searchedCity);
       // weather api print to page
       // temperature
-      document.querySelector(".temp").textContent = Math.round(data.main.temp);
+      document.querySelector(".temp").textContent =
+        Math.round(data.main.temp) + "°F";
       console.log(Math.round(data.main.temp));
 
       // weather description
@@ -71,163 +79,53 @@ function weather(searchedCity) {
     });
 }
 
+
+
 // CITYBIKE API FETCH FUNCTION
 function cityBike(city) {
-  console.log(city)
-  fetch("http://api.citybik.es/v2/networks/" + city + "")
   console.log(city);
   fetch("http://api.citybik.es/v2/networks/" + city + "")
     .then((response) => response.json())
     .then((data) => {
-      // bike data
       console.log(data);
 
-      var stationNetwork = data.network.stations
-      var stationName = data.network.stations[0];
-      console.log(stationName);
-      for (let index = 0; index < stationName.length; index++) {
-        console.log(stationName[index]);
+      // for each loop calling each variable
+      data.network.stations.slice(0, 5).forEach((station) => {
+        console.log(station.extra.address);
+        let stationName = station.name; //station name
+        let stationAddress = station.extra.address; //station address
+        let freeBikes = station.free_bikes; //available bikes
+        let emptySlots = station.empty_slots; //empty slots
+
+        // template literal placing the data on the page - edit this in css 
+        function bikeInformation() {
+          var bikeHtml = document.createElement("div");
+      
+          var stationNameDiv = document.createElement("div");
+          stationNameDiv.innerHTML = `<h3>Station Name: <span class="results"> ${stationName} </span></h3>`;
+          bikeHtml.appendChild(stationNameDiv);
+      
+          var stationAddressDiv = document.createElement("div");
+          stationAddressDiv.innerHTML = `<h3>Station Address: <span class="results"> ${stationAddress} </span></h3>`;
+          bikeHtml.appendChild(stationAddressDiv);
+      
+          var freeBikesDiv = document.createElement("div");
+          freeBikesDiv.innerHTML = `<h3># of Available Bikes: <span class="results"> ${freeBikes} </span></h3>`;
+          bikeHtml.appendChild(freeBikesDiv);
+      
+          var emptySlotsDiv = document.createElement("div");
+          emptySlotsDiv.innerHTML = `<h3># of Empty Slots: <span class="results"> ${emptySlots} </span></h3><br>`;
+          bikeHtml.appendChild(emptySlotsDiv);
+      
+          bikeContainer.appendChild(bikeHtml);
+          console.log(bikeHtml);
       }
-
-    });
-
-  // print Bike Data
-    .then((data) => {
-      console.log(data);
-
-      // setting stations as an array and slicing it off at 6 return items
-      let stationName = [];
-      let stationAddress = [];
-      let freeBikes = [];
-      let emptySlots = [];
-
-      for (
-        let index = 0;
-        index < data.network.stations.slice(0, 5).length;
-        index++
-      ) {
-        console.log(data.network.stations[index].extra.address);
-
-        // bike api calls = to modify css easier - can change names of each
-        stationName.push(data.network.stations[index].name); //station name
-        stationAddress.push(data.network.stations[index].extra.address); //station address 
-          freeBikes.push(data.network.stations[index].free_bikes); // number of free bikes
-          emptySlots.push(data.network.stations[index].empty_slots); // number of empty slots
-      }
-
-      // creating list items for cityBike items
-      var ul = document.querySelector(".station-name");
-      stationName.forEach((name) => {
-        var li = document.createElement("li");
-        li.innerText = "location name: " + name; //
-        ul.appendChild(li);
-      });
-
-      stationAddress.forEach((address) => {
-        var li = document.createElement("li");
-        li.innerText = "address: " + address; //
-        ul.appendChild(li);
-      });
-
-      freeBikes.forEach((freeBikes) => {
-        var li = document.createElement("li");
-        li.innerText = "free bikes: " + freeBikes; //
-        ul.appendChild(li);
-      });
-
-      emptySlots.forEach((emptySlots) => {
-        var li = document.createElement("li");
-        li.innerText = "empty slots: " + emptySlots; //
-        ul.appendChild(li);
+      
+        bikeContainer.innerhtml = bikeInformation();
       });
     });
 }
 
-// function renderItems(data, city) {
-// bikeDisplay(data, city);
-// }
-
-
-  //  var city = data.networks.location.city
-  // data.network.station[0].extra.address;
-  //console.log(station[0].extra.address);
-
-  //data.network.stations[0]
-
-      for (
-        let index = 0;
-        index < data.network.stations.slice(0, 5).length;
-        index++
-      ) {
-        console.log(data.network.stations[index].extra.address);
-
-        // bike api calls = to modify css easier - can change names of each
-        stationName.push(data.network.stations[index].name); //station name
-        stationAddress.push(data.network.stations[index].extra.address); //station address
-        "number of bikes" +
-          freeBikes.push(data.network.stations[index].free_bikes); // number of free bikes
-        "number of bikes" +
-          emptySlots.push(data.network.stations[index].empty_slots); // number of empty slots
-      }
-
-      // creating list items for cityBike items
-      var ul = document.querySelector(".station-name");
-      stationName.forEach((name) => {
-        var li = document.createElement("li");
-        li.innerText = "location name: " + name; //
-        ul.appendChild(li);
-      });
-
-      stationAddress.forEach((address) => {
-        var li = document.createElement("li");
-        li.innerText = "address: " + address; //
-        ul.appendChild(li);
-      });
-
-      freeBikes.forEach((freeBikes) => {
-        var li = document.createElement("li");
-        li.innerText = "free bikes: " + freeBikes; //
-        ul.appendChild(li);
-      });
-
-      emptySlots.forEach((emptySlots) => {
-        var li = document.createElement("li");
-        li.innerText = "empty slots: " + emptySlots; //
-        ul.appendChild(li);
-      });
-    });
-}
-
-// function renderItems(data, city) {
-// bikeDisplay(data, city);
-// }
-
-// pulling CityBikeAPI key to the page
-// function bikeDisplay(data) {
-// let stationName = [];
-// for (let index = 0; index < data.network.stations.slice(0, 5).length; index++) {
-//   // console.log(data.network.stations[index]);
-//    stationName.push(data.network.stations[index].name);
-//   //  stationName.slice(0, 5)
-// console.log(stationName)
-// }
-// // creating list items
-// var ul = document.querySelector(".station-name")
-// stationName.forEach((element) => {
-//   var li = document.createElement("li");
-//   li.innerText = element;
-//   ul.appendChild(li);
-// });}
-
-// not reading correctly
-// document.querySelector(".location").textContent = data.network.name;
-// console.log(data.network.name);
-
-//
-
-// claring the search box
-// searchEl.value = "";
-// }
 
 // Saving the past searches into local storage
 function saveCitySearch(city) {
@@ -235,11 +133,3 @@ function saveCitySearch(city) {
   previousHistory[city] = true;
   localStorage.setItem("searchHistory", JSON.stringify(previousHistory));
 }
-
-
-
-
-
-
-
-
