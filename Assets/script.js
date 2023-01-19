@@ -20,7 +20,7 @@ searchBtnEl.addEventListener("click", function (event) {
     let cityLower = city.toLowerCase();
     console.log(cityLower);
 
-    // Catch fucntion
+    
     saveCitySearch(city);
     weather(city);
     cityBike(city);
@@ -30,20 +30,18 @@ searchBtnEl.addEventListener("click", function (event) {
     cityBike(cityLower);
     searchEl.value = "";
   }
+  // Catch fucntion
   else {
     function cityNA() {
       var message = document.getElementById("p01");
       message.innerHTML = "";
-      let x = document.getElementById("demo").value;
+      let noCity = searchEl.value.trim();
       try {
-        if (x.trim() == "") throw "empty";
-        if (isNaN(x)) throw "not a number";
-        x = Number(x);
-        if (x < 5) throw "too low";
-        if (x > 10) throw "too high";
+        if (noCity.trim() == "") throw "No bike station was found in this city.";
+      
       }
       catch (err) {
-        message.innerHTML = "Input is " + err;
+        message.innerHTML = "Sorry!" + err;
       }
     }
   }
