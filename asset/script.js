@@ -22,10 +22,11 @@ searchBtnEl.addEventListener("click", function (event) {
     console.log(cityLower);
 
     weather(city);
-    cityBike(cityLower);
+    cityBike(city);
     saveCitySearch(city);
-   // saveCitySearch(data.network.location.city); 
-
+    //saveCitySearch(data.network.location.city); 
+    console.log(event,"data")
+    console.warn(city)
     searchEl.value = "";
   }
 });
@@ -83,7 +84,7 @@ function cityBike(city) {
   fetch("http://api.citybik.es/v2/networks/" + city + "")
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      console.log(data, "cityBikeData");
 
       renderHistory();
       bikeContainer.innerHTML = "";
