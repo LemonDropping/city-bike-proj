@@ -81,7 +81,7 @@ function weather(searchedCity) {
 // CITYBIKE API FETCH FUNCTION
 function cityBike(city) {
   console.log(city);
-  fetch("http://api.citybik.es/v2/networks/" + city + "")
+  fetch("https://cors-anywhere.herokuapp.com/http://api.citybik.es/v2/networks/" + city + "")
     .then((response) => response.json())
     .then((data) => {
       console.log(data, "cityBikeData");
@@ -125,7 +125,7 @@ function cityBike(city) {
       });
     });
 }
-
+-
 // Saving the past searches into local storage
 function saveCitySearch(city) {
   let previousHistory = JSON.parse(localStorage.getItem("searchHistory")) || {};
