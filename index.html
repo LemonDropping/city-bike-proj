@@ -1,74 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- MATERIALIZE LINK -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
 
-  <!-- MATERIALIZE LINK -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- CSS LINK -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/style.css" />
 
-  <!-- CSS LINK -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="./assets/style.css">
+    <title>CityBike Finder</title>
+  </head>
 
-  <!-- LEAFLET LINK -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
-  <!-- LEAFLET SCRIPT -->
-  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
-    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
-
-  <title>CityBike Finder</title>
-</head>
-
-<body>
-  <header class="hero is-success">
-    <div class="hero-body">
-      <h1 class="title">City Bike Finder</h1>
-      <p class="subtitle">A simple way to find a free bike in your area with up to date weather conditions!</p>
-    </div>
-  </header>
-
-  <main>
-    <!-- full page background-->
-    <section class="background">
-      <div class="background-image">
-        <!-- <img class="responsive-img" src="assets/images/Homepage-bg.jpeg" alt="bg-image" > -->
-
-
+  <body>
+    <header class="hero is-success">
+      <div class="hero-body">
+        <h1 class="title">City Bike Finder</h1>
+        <p class="subtitle">
+          A simple way to find a free bike in your area with up to date weather
+          conditions!
+        </p>
       </div>
-    </section>
+    </header>
 
-
-    <div class="title-two">
-      <h2 class="search-title">Find Your Bike Now</h2>
-      <div class="search-main">
-        <input class="search-input" id="search-bar" type="text" placeholder="Search city here">
-        <a class="search-btn waves-effect waves-light btn"><i class="material-icons left">directions_bike</i>Search</a>
+    <main>
+      <!-- full page background-->
+      <section class="background">
+        <div class="background-image"></div>
+      </section>
+      
+      <!-- title and search bar -->
+      <div class="title-two">
+        <h2 class="search-title">Find Your Bike Now</h2>
+        <div class="search-main">
+          <input
+            class="search-input"
+            id="search-bar"
+            type="text"
+            placeholder="Search city here"/>
+          <a class="search-btn waves-effect waves-light btn">
+            <i class="material-icons left">directions_bike</i>Search</a>
+        </div>
       </div>
-    </div>
-  </main>
+    </main>
 
-  <div id="map"></div>
+    <!-- appended past search buttons -->
+    <div id="past-search" class="past-search"></div>
 
+    <div class="big-container">
+      <!-- citybike api -->
+      <div class="bike-api-container" id="bike">
+        <div class="row"></div>
+      </div>
 
-
-
-  <div class="big-container">
-    <!-- citybike api -->
-    <div class="bike-api-container" id="bike">
-      <div class="row">
-    </div>
-    </div>
-
-    <!-- weather container-->
-    <div class="container" id="wrapper">
-      <div class="container-fluid" id="current-weather">
-        <!-- <div class="row"> -->
-
-
+      <!-- weather container-->
+      <div class="container" id="wrapper">
+        <div class="container-fluid" id="current-weather">
 
           <!-- weather api -->
           <p class="temp"></p>
@@ -80,18 +76,20 @@
       </div>
     </div>
 
+    <!-- footer -->
+    <footer>
+      <p>&copy;Group 1</p>
+      <p>City Bike Finder</p>
+    </footer>
 
+    <!-- dayjs -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+      integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+      crossorigin="anonymous"
+    ></script>
 
-
-  <footer>
-    <p>&copy;Group 1</p>
-    <p>City Bike Finder</p>
-  </footer>
-  <!-- dayjs -->
-  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
-    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
-  <!-- javascript -->
-  <script src="./assets/script.js"></script>
-</body>
-
+    <!-- javascript -->
+    <script src="./assets/script.js"></script>
+  </body>
 </html>
