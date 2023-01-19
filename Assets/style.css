@@ -33,7 +33,6 @@ h2 {
   font-size: 40px;
 }
 
-
 #search-bar{
   max-width: 20%;
   background-color: aliceblue;
@@ -68,9 +67,15 @@ h2 {
   max-width: 300px;
   padding: 10px;
   color: white;  
-  margin-bottom: 600px;
+  margin-bottom: 560px;
   margin-left: 100px;
 }
+
+#current-weather {
+  text-align: center;
+  font-size: 20px;
+}
+
 h3 {
   font-size: 20px;
   font-weight: bold;
