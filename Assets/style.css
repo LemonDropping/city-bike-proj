@@ -33,22 +33,21 @@ h2 {
   font-size: 40px;
 }
 
-#wrapper{
-  background-color: #168166;
-  box-shadow: 1px 5px 25px 3px #444;
-  border-radius: 10px;
-  max-width: 300px;
-  padding: 10px;
-  color: white;  
-  margin-bottom: 600px;
-  margin-left: 100px;
-}
 
 #search-bar{
   max-width: 20%;
   background-color: aliceblue;
   border-radius: 5px;
   margin-left: 20px;
+}
+/* can just style by the h3 and results class */
+
+.big-container{
+  display: flex;
+  justify-content: center; 
+  margin-right: 200px;
+  margin-top: 0; 
+  align-items: center;
 }
 
 #bike {
@@ -62,7 +61,16 @@ h2 {
   margin-top: 20px;
 }
 
-/* can just style by the h3 and results class */
+#wrapper{
+  background-color: #168166;
+  box-shadow: 1px 5px 25px 3px #444;
+  border-radius: 10px;
+  max-width: 300px;
+  padding: 10px;
+  color: white;  
+  margin-bottom: 600px;
+  margin-left: 100px;
+}
 h3 {
   font-size: 20px;
   font-weight: bold;
@@ -70,16 +78,6 @@ h3 {
   line-height: 0%;
   margin-left: 5px;
 }
-
-
-.big-container{
-  display: flex;
-  justify-content: center; 
-  margin-right: 200px;
-  margin-top: 0; 
-  align-items: center;
-}
-
 
 .results {
   font-weight: lighter;
