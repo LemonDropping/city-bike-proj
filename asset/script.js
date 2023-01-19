@@ -81,12 +81,7 @@ function weather(searchedCity) {
 // CITYBIKE API FETCH FUNCTION
 function cityBike(city) {
   console.log(city);
-  fetch("http://api.citybik.es/v2/networks/" + city + "", {
-    headers: {
-        'X-Requested-With': 'https://cors-anywhere.herokuapp.com/',
-        'Content-Type': 'application/json'
-    }
-  })
+  fetch("https://cors-anywhere.herokuapp.com/http://api.citybik.es/v2/networks/" + city + "")
     .then((response) => response.json())
     .then((data) => {
       console.log(data, "cityBikeData");
