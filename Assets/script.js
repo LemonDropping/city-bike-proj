@@ -114,56 +114,20 @@ function cityBike(city) {
           bikeHtml.appendChild(freeBikesDiv);
       
           var emptySlotsDiv = document.createElement("div");
-          emptySlotsDiv.innerHTML = `<h3># of Empty Slots: <span class="results"> ${emptySlots} </span></h3>`;
+          emptySlotsDiv.innerHTML = `<h3># of Empty Slots: <span class="results"> ${emptySlots} </span></h3><br>`;
           bikeHtml.appendChild(emptySlotsDiv);
       
           bikeContainer.appendChild(bikeHtml);
           console.log(bikeHtml);
       }
-        // function bikeInformation() {
-        //   var bikeHtml = document.createElement("div");
-        //   bikeHtml.innerHTML = `<div class = "bike-container"> 
-        //   <h3>Station Name: <span class="results"> ${stationName} </span></h3> 
-        //     <br>
-        //   <h3>Station Address: <span class="results">${stationAddress} </span></h3>
-        //      <br>
-        //   <h3># of Available Bikes: <span class="results"> ${freeBikes} </span></h3>
-        //     <br>
-        //   <h3># of Empty Slots: <span class="results"> ${emptySlots} </span></h3>
-        //     <br>
-        //   </div>`;
-        //   BikeContainer.appendChild(bikeHtml);
-        //   console.log(bikeHtml);
-        // }
+      
         bikeContainer.innerhtml = bikeInformation();
       });
     });
 }
 
-// WORKING ON A MAP FUNCTION
-
-function map(){
-  // var long = data.stations.coord.lat;
-  // var lat = data.stations.coord.lon;
-  // var latlng = L.latLng(50.5, 30.5);
-var map = L.map('map').setView([51.505, -0.09], 13);
-console.log(map)
-
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
-
-L.marker([51.5, -0.09]).addTo(map)
-    .bindPopup('searched city name')
-    .openPopup();
-}
-
-
 
 // Saving the past searches into local storage
-
-
-
 function saveCitySearch(city) {
   let previousHistory = JSON.parse(localStorage.getItem("searchHistory")) || {};
   previousHistory[city] = true;

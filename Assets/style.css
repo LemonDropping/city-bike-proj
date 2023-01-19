@@ -17,10 +17,8 @@
   max-width: 300px;
   padding: 0px;
   color: white;  
-  margin-bottom: 300px;
+  margin-bottom: 500px;
   margin-left: 100px;
-  
-  
 }
 
 
@@ -34,18 +32,6 @@ body {
   margin: 0;
   padding:0;
 }
-/* 
-#map { 
-  height: 300px; 
-  width: 70%;
-} */
-
-/* .search-main{ 
-  display: flex;
-  justify-content: center;
-
-}*/
-
 
 
 #search-bar{
@@ -56,27 +42,19 @@ body {
 }
 
 
+
 #bike {
   background-color: #168166;
   box-shadow: 1px 5px 25px 3px #444;
   border-radius: 10px;
-  max-width: fit-content;
+  width: 35%;
   padding: 0px;
   color:white;  
   margin-left: 15px;
 }
 
 
-/* .bike-container h3{
-  font-size: 15px;
-  color: black;
-}
 
-.bike-container p{
-  font-size: 10px;
-  
-   
-}  */
 
 /* can just style by the h3 and results class */
 h3 {
