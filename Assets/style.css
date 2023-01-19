@@ -93,6 +93,9 @@ h3 {
   padding: 5%;
 }
 
+p.description {
+  text-transform: capitalize;
+} 
 /*
 footer {
   position: fixed;
