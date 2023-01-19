@@ -22,9 +22,9 @@ searchBtnEl.addEventListener("click", function (event) {
     console.log(cityLower);
 
     weather(city);
-    cityBike(city);
+    cityBike(cityLower);
     saveCitySearch(city);
-    saveCitySearch(data.network.location.city);
+   // saveCitySearch(data.network.location.city); 
 
     searchEl.value = "";
   }
