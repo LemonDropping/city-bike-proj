@@ -6,7 +6,6 @@
   margin: 0;
   padding: 0;
   font-family: 'Arsenal';
-  
 }
 
 body {
@@ -38,6 +37,7 @@ h2 {
   background-color: aliceblue;
   border-radius: 5px;
   margin-left: 20px;
+  padding: 5px;
 }
 /* can just style by the h3 and results class */
 
