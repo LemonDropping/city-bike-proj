@@ -24,9 +24,8 @@ searchBtnEl.addEventListener("click", function (event) {
     weather(city);
     cityBike(city);
     saveCitySearch(city);
-    //saveCitySearch(data.network.location.city); 
-    console.log(event,"data")
-    console.warn(city)
+    saveCitySearch(data.network.location.city);
+
     searchEl.value = "";
   }
 });
@@ -81,10 +80,10 @@ function weather(searchedCity) {
 // CITYBIKE API FETCH FUNCTION
 function cityBike(city) {
   console.log(city);
-  fetch("http://api.citybik.es/v2/networks/" + city + "", {mode: "no-cors"})
+  fetch("http://api.citybik.es/v2/networks/" + city + "")
     .then((response) => response.json())
     .then((data) => {
-      console.log(data, "cityBikeData");
+      console.log(data);
 
       renderHistory();
       bikeContainer.innerHTML = "";
@@ -125,7 +124,7 @@ function cityBike(city) {
       });
     });
 }
--
+
 // Saving the past searches into local storage
 function saveCitySearch(city) {
   let previousHistory = JSON.parse(localStorage.getItem("searchHistory")) || {};
