@@ -24,10 +24,9 @@ searchBtnEl.addEventListener("click", function (event) {
     weather(city);
     cityBike(city);
     saveCitySearch(city);
-    saveCitySearch(data.network.location.city);
-
-    searchEl.value = "";
+    // saveCitySearch(data.network.location.city);
   }
+  searchEl.value = "";
 });
 
 // WEATHER API FETCH FUNCTION

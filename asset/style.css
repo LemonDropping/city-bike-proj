@@ -67,6 +67,7 @@ h2 {
   color: white;
   margin-left: 20px;
   margin-top: 20px;
+  word-wrap: break-word;
 }
 
 #wrapper {
