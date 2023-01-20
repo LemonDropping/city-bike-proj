@@ -10,26 +10,23 @@ var pastSearchEl = document.getElementById("past-search");
 containerEl.style.display = "none";
 bikeContainer.style.display = "none";
 
-// event listener upon clicking search to display containers and fetch API's
-searchBtnEl.addEventListener("click", function (event) {
+// event listener upon clicking search to display containers and fetch API’s
+searchBtnEl.addEventListener(“click”, function (event) {
   event.preventDefault();
-  containerEl.style.display = "block";
-  bikeContainer.style.display = "block";
-
-  if (searchEl.value.trim() || searchEl.value.trim() !== "") {
+  containerEl.style.display = “block”;
+  bikeContainer.style.display = “block”;
+  if (searchEl.value.trim() || searchEl.value.trim() !== “”) {
     let city = searchEl.value.trim();
     let cityLower = city.toLowerCase();
     console.log(cityLower);
-
     weather(city);
     cityBike(city);
     saveCitySearch(city);
-    //saveCitySearch(data.network.location.city); 
-    console.log(event,"data")
-    console.warn(city)
-    searchEl.value = "";
+    // saveCitySearch(data.network.location.city);
   }
+  searchEl.value = “”;
 });
+
 
 // WEATHER API FETCH FUNCTION
 function weather(searchedCity) {
